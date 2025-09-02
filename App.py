@@ -2,7 +2,47 @@ import streamlit as st
 import random
 
 # ----------------------------
-# Sample Question Bank (Dummy Data for now)
+# Sample Questioimport streamlit as st
+import random
+
+# Demo Question Bank
+ncert_questions = [
+    "Define photosynthesis.",
+    "Expand: (a+b)²",
+    "State Newton's First Law of Motion.",
+    "What is democracy?",
+    "What is the chemical formula of water?",
+]
+
+previous_year_questions = [
+    "Why do we see lightning before hearing thunder? (CBSE 2019)",
+    "Explain the causes of the French Revolution. (ICSE 2021)",
+    "Find the roots of: x² - 7x + 12 = 0 (Board 2020)",
+    "Write a speech on 'Save Environment'. (CBSE 2022)",
+    "State Ohm’s Law. (State Board 2021)",
+]
+
+# Merge all questions for random selection
+all_questions = [(q, "NCERT") for q in ncert_questions] + [(q, "PYQ") for q in previous_year_questions]
+
+st.title("📚 AI Board Exam Question Generator")
+st.subheader("Auto-detect NCERT + Previous Year Questions")
+
+class_choice = st.selectbox("Select Class", [f"Class {i}" for i in range(6, 13)])
+board_choice = st.selectbox("Select Board", ["CBSE", "ICSE", "State Board", "SCERT"])
+subject_choice = st.selectbox("Select Subject", ["Maths", "Science", "English", "Social Science"])
+
+if st.button("Generate Smart Questions"):
+    st.success(f"✨ Questions for {class_choice} - {board_choice} - {subject_choice} 👇")
+
+    selected = random.choices(all_questions, k=15)
+    
+    for i, (q, source) in enumerate(selected, 1):
+        if source == "NCERT":
+            st.write(f"**Q{i}. 🟢 (NCERT)** {q}")
+        else:
+            st.write(f"**Q{i}. 🔵 (Previous Year)** {q}")
+             n Bank (Dummy Data for now)
 # In real case, you can expand it with full database or AI API
 # ----------------------------
 question_bank = {
@@ -62,3 +102,44 @@ if st.button("Generate Exam Questions"):
             st.write(f"**Q{i}.** {q}")
     else:
         st.error("❌ Sorry! No data available for this selection yet.")
+    import streamlit as st
+import random
+
+# Demo Question Bank
+ncert_questions = [
+    "Define photosynthesis.",
+    "Expand: (a+b)²",
+    "State Newton's First Law of Motion.",
+    "What is democracy?",
+    "What is the chemical formula of water?",
+]
+
+previous_year_questions = [
+    "Why do we see lightning before hearing thunder? (CBSE 2019)",
+    "Explain the causes of the French Revolution. (ICSE 2021)",
+    "Find the roots of: x² - 7x + 12 = 0 (Board 2020)",
+    "Write a speech on 'Save Environment'. (CBSE 2022)",
+    "State Ohm’s Law. (State Board 2021)",
+]
+
+# Merge all questions for random selection
+all_questions = [(q, "NCERT") for q in ncert_questions] + [(q, "PYQ") for q in previous_year_questions]
+
+st.title("📚 AI Board Exam Question Generator")
+st.subheader("Auto-detect NCERT + Previous Year Questions")
+
+class_choice = st.selectbox("Select Class", [f"Class {i}" for i in range(6, 13)])
+board_choice = st.selectbox("Select Board", ["CBSE", "ICSE", "State Board", "SCERT"])
+subject_choice = st.selectbox("Select Subject", ["Maths", "Science", "English", "Social Science"])
+
+if st.button("Generate Smart Questions"):
+    st.success(f"✨ Questions for {class_choice} - {board_choice} - {subject_choice} 👇")
+
+    selected = random.choices(all_questions, k=15)
+    
+    for i, (q, source) in enumerate(selected, 1):
+        if source == "NCERT":
+            st.write(f"**Q{i}. 🟢 (NCERT)** {q}")
+        else:
+            st.write(f"**Q{i}. 🔵 (Previous Year)** {q}")
+
